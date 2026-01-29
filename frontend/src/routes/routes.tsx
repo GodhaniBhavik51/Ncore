@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 
 import {
   HomePage,
@@ -6,28 +6,28 @@ import {
   ProductPage,
   ProductDetailPage,
   ContactPage,
-} from '../pages/common';
+} from '../pages';
+
 import NotFoundPage from '../pages/404';
-import Header from '../components/header';
-import Footer from '../components/footer';
+import Layout from '../components/layout/layout';
 
 const AppRoutes = () => {
+
   return (
-    <>
-      <Header />
-      <Routes>
+    <Routes>
 
-        <Route path="/:brand" element={<BrandLayout />}>
-          <Route path="about-us" element={<AboutPage />} />
-          <Route path="product" element={<ProductPage />} />
-          <Route path="product/:id" element={<ProductDetailPage />} />
-          <Route path="contact-us" element={<ContactPage />} />
-        </Route>
+      <Route path="/" element={<Navigate to="/ncore" replace />} />
 
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
-      <Footer />
-    </>
+      <Route path="/:brand" element={<Layout />}>
+        <Route index element={<HomePage />} />
+        <Route path="about-us" element={<AboutPage />} />
+        <Route path="product" element={<ProductPage />} />
+        <Route path="product/:id" element={<ProductDetailPage />} />
+        <Route path="contact-us" element={<ContactPage />} />
+      </Route>
+
+      <Route path="*" element={<NotFoundPage />} />
+    </Routes>
   );
 };
 

@@ -1,5 +1,5 @@
-import { established, innovation } from '../../assets/icon'
-import {aboutImage ,ncoreOwner} from '../../assets/images'
+import { established, innovation } from '../assets/icon'
+import {aboutImage ,ncoreOwner} from '../assets/images'
 
 const AboutPage = () => {
   return (

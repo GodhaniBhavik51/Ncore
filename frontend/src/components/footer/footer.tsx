@@ -26,16 +26,17 @@ const ICON_MAP: any = {
   renilIcon,
 };
 
-const Footer = () => {
+const Footer = ({ theme }: any) => {
+  const { pageData, loading } = footerController();
 
-  const { theme, pageData } = footerController()
+  if (loading || !pageData) return null;
 
   return (
     <footer className={`footer footer-${theme}`}>
       <div className="footer-wrap">
         <div className="footer-col-1">
           <div className="brand-box">
-            <img src={ICON_MAP[pageData?.brand?.logo]} />
+            <img src={ICON_MAP[pageData?.brand?.logo]} alt={pageData?.brand?.title}/>
             <h2>
               {pageData?.brand?.title}
               <br />
@@ -45,9 +46,9 @@ const Footer = () => {
           <div className="footer-col">
             <h3>Social Media</h3>
             <div className="social-row">
-              {pageData?.social?.map((s: any) => (
-                <a key={s?.icon} href={s?.url}>
-                  <img src={ICON_MAP[s?.icon]} />
+              {pageData?.social?.map((data: any) => (
+                <a key={data?.url} href={data?.url} target="_blank">
+                  <img src={ICON_MAP[data?.icon]} />
                 </a>
               ))}
             </div>
@@ -57,14 +58,14 @@ const Footer = () => {
         <div className="footer-col">
           <h4>Navigation</h4>
           <ul className="nav-list">
-            {pageData?.navigation?.map((n: any) => (
-              <li key={n.label}>
+            {pageData?.navigation?.map((nav: any) => (
+              <li key={nav?.label}>
                 <NavLink
-                  to={n.path}
+                  to={nav?.path}
                   className={({ isActive }) =>
                     isActive ? 'footer-link active' : 'footer-link'
                   }>
-                  {n.label}
+                  {nav?.label}
                 </NavLink>
               </li>
             ))}
@@ -73,10 +74,10 @@ const Footer = () => {
 
         <div className="footer-col">
           <h4>Contact Us</h4>
-          {pageData?.contact?.map((c: any) => (
-            <div className="info-row" key={c.value}>
-              <img src={ICON_MAP[c?.icon]} />
-              <p>{c?.value}</p>
+          {pageData?.contact?.map((cnt: any) => (
+            <div className="info-row" key={cnt?.value}>
+              <img src={ICON_MAP[cnt?.icon]} />
+              <p>{cnt?.value}</p>
             </div>
           ))}
         </div>
