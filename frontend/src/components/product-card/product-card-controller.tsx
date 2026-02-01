@@ -7,17 +7,17 @@ import Autoplay from 'embla-carousel-autoplay';
 const productCardController = () => {
   const { brand } = useParams<{ brand?: string }>();
   const { slug }: any = useParams();
-  
+
   const emblaOptions: any = {
     active: true,
     loop: true,
     slidesToScroll: 1,
     dragFree: true,
-    align: 'start',
+    align: 'center',
   };
 
   const [emblaRef] = useEmblaCarousel(emblaOptions, [
-    Autoplay({ playOnInit: true, delay: 1500, stopOnInteraction: false }),
+    Autoplay({ playOnInit: true, delay: 1500, stopOnInteraction:false }),
   ]);
 
   const [products, setProducts] = useState<any>(null);
@@ -45,6 +45,7 @@ const productCardController = () => {
   }, [brand]);
 
   useEffect(() => {
+    if (slug) return;
     axios
       .get(`/api/products/?theme=${brand}`)
       .then((res) => {

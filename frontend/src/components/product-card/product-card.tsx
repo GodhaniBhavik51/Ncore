@@ -22,12 +22,11 @@ const ProductCard = () => {
   const { emblaRef, products, loading, theme } = productCardController();
 
   if (loading || !products) return null;
-
   return (
     <>
-      {products?.map((item: any) => {
+      {products?.map((item: any,index:number) => {
         return (
-          <section className="products-section">
+          <section className="products-section" key={index}>
             <h2>{item?.title}</h2>
             <p className="products-sub">{item?.subtitle}</p>
 
@@ -37,29 +36,33 @@ const ProductCard = () => {
                   {[...item?.products, ...item?.products]?.map(
                     (product: any, index: number) => {
                       return (
-                        <div className="product-card embla__slide" key={index.toString()}>
-                          <div
-                            className={`${theme === 'renil' ? 'product-image-wrapper' : ''}`}>
-                            <img
-                              className={theme}
-                              src={ICON_MAP[product?.image]}
-                              alt={product.title}
-                            />
+                        <div className="embla__slide" key={index}>
+                          <div className="product-card">
+                            <div
+                              className={`${theme === 'renil' ? 'product-image-wrapper' : ''} embla__slide__img`}>
+                              <img
+                                className={theme}
+                                src={ICON_MAP[product?.image]}
+                                alt={product.title}
+                              />
+                            </div>
+                            <h4>{product.title}</h4>
+                            <p className="product-desc">
+                              {product.description}
+                            </p>
+
+                            <ul className="product-features">
+                              {product.features.map((f: any, i: number) => (
+                                <li key={i}>{f?.name}</li>
+                              ))}
+                            </ul>
+
+                            <a
+                              href={`/${theme}/product/${product.slug}`}
+                              className={`product-btn ${theme}`}>
+                              View Collection →
+                            </a>
                           </div>
-                          <h4>{product.title}</h4>
-                          <p className="product-desc">{product.description}</p>
-
-                          <ul className="product-features">
-                            {product.features.map((f: any, i: number) => (
-                              <li key={i}>{f?.name}</li>
-                            ))}
-                          </ul>
-
-                          <a
-                            href={`/${theme}/product/${product.slug}`}
-                            className={`product-btn ${theme}`}>
-                            View Collection →
-                          </a>
                         </div>
                       );
                     }

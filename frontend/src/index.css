@@ -1,3 +1,7 @@
 .body-section{
     margin: 0px !important;
 }
+
+html {
+  scroll-behavior: auto;
+}

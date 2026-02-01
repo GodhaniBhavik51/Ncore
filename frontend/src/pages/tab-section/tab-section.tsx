@@ -14,9 +14,9 @@ const TabSection = () => {
 
   useEffect(() => {
     if (location.pathname.startsWith('/ncore')) {
-      setBranding('Ncore Electricals', ncoreIcon);
+      setBranding('Ncore Electricals Co', ncoreIcon);
     } else if (location.pathname.startsWith('/renil')) {
-      setBranding('Renil Company', renilIcon);
+      setBranding('Renil', renilIcon);
     }
   }, [location.pathname]);
 const activeTheme = location.pathname.startsWith("/renil") ? "renil" : "ncore";
