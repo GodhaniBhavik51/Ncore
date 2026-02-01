@@ -1,8 +1,8 @@
 const express = require("express");
-const { getFooter } = require("../controllers/footer.controller");
+const { getAbout } = require("../controllers/about.controller");
 
 const router = express.Router();
 
-router.get("/", getFooter);
+router.get("/", getAbout);
 
 module.exports = router;

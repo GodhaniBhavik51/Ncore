@@ -10,7 +10,6 @@ import {
   ncoreIcon,
   renilIcon,
 } from '../../assets/icon';
-import { footerController } from './footer-controller';
 import './index.css'
 
 
@@ -26,8 +25,7 @@ const ICON_MAP: any = {
   renilIcon,
 };
 
-const Footer = ({ theme }: any) => {
-  const { pageData, loading } = footerController();
+const Footer = ({ theme,pageData, loading }: any) => {
 
   if (loading || !pageData) return null;
 
@@ -39,8 +37,10 @@ const Footer = ({ theme }: any) => {
             <img src={ICON_MAP[pageData?.brand?.logo]} alt={pageData?.brand?.title}/>
             <h2>
               {pageData?.brand?.title}
+              {theme === 'renil' && <sup className="reg-circle-footer">R</sup>}
               <br />
               {pageData?.brand?.subtitle}
+              {theme === 'ncore' && <sup className="tm-circle-footer">TM</sup>}
             </h2>
           </div>
           <div className="footer-col">
@@ -84,7 +84,7 @@ const Footer = ({ theme }: any) => {
       </div>
 
       <div className="footer-bottom">
-        © {new Date().getFullYear()} {pageData.brand.title} {pageData.brand.subtitle}
+        Copyright {new Date().getFullYear()} {pageData.brand.title} {pageData.brand.subtitle}
       </div>
     </footer>
   );

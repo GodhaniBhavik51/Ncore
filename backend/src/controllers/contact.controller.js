@@ -15,67 +15,103 @@ exports.sendContactMessage = async (req, res) => {
       from: email,
       to: process.env.MAIL_USER,
       subject: `Contact Form: ${subject}`,
-      html: `
-<!DOCTYPE html>
+      html: `<!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8" />
-  <title>New Contact Message</title>
+  <title>New Contact Inquiry</title>
 </head>
-<body style="margin:0;padding:0;background:#f4f6f8;font-family:Arial,Helvetica,sans-serif;">
+
+<body style="margin:0;padding:0;background-color:#f4f6f8;font-family:Arial,Helvetica,sans-serif;">
   <table width="100%" cellpadding="0" cellspacing="0">
     <tr>
-      <td align="center" style="padding:30px 0;">
-        <table width="600" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:8px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.08);">
-          
+      <td align="center" style="padding:40px 0;">
+        <table width="600" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:10px;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,0.08);">
+
           <!-- HEADER -->
           <tr>
-            <td style="background:#0f172a;color:#ffffff;padding:20px 30px;">
-              <h2 style="margin:0;font-size:20px;">New Contact Inquiry</h2>
-              <p style="margin:5px 0 0;font-size:13px;opacity:0.8;">
-                Website Contact Form Submission
-              </p>
+            <td style="background:#2b3f8f;padding:22px 30px;color:#ffffff;">
+              <table width="100%">
+                <tr>
+                  <td>
+                    <h2 style="margin:0;font-size:20px;font-weight:600;">
+                      New Contact Inquiry
+                    </h2>
+                    <p style="margin:4px 0 0;font-size:13px;opacity:0.9;">
+                      Website Contact Form Submission
+                    </p>
+                  </td>
+                </tr>
+              </table>
             </td>
           </tr>
 
-          <!-- CONTENT -->
+          <!-- BODY -->
           <tr>
             <td style="padding:30px;">
-              <p style="margin:0 0 15px;font-size:14px;color:#334155;">
+              <p style="margin:0 0 20px;font-size:14px;color:#334155;">
                 You have received a new message from your website contact form.
               </p>
 
+              <!-- DETAILS -->
               <table width="100%" cellpadding="0" cellspacing="0" style="font-size:14px;color:#334155;">
                 <tr>
-                  <td style="padding:8px 0;width:140px;"><strong>Full Name:</strong></td>
-                  <td style="padding:8px 0;">${firstName} ${lastName}</td>
+                  <td style="padding:10px 0;width:120px;color:#94a3b8;text-transform:uppercase;font-size:12px;">
+                    Name
+                  </td>
+                  <td style="padding:10px 0;font-weight:500;">
+                    ${firstName} ${lastName}
+                  </td>
                 </tr>
+
                 <tr>
-                  <td style="padding:8px 0;"><strong>Email:</strong></td>
-                  <td style="padding:8px 0;">${email}</td>
+                  <td style="padding:10px 0;color:#94a3b8;text-transform:uppercase;font-size:12px;">
+                    Email
+                  </td>
+                  <td style="padding:10px 0;">
+                    <a href="mailto:${email}" style="color:#2b3f8f;text-decoration:none;">
+                      ${email}
+                    </a>
+                  </td>
                 </tr>
+
                 <tr>
-                  <td style="padding:8px 0;"><strong>Subject:</strong></td>
-                  <td style="padding:8px 0;">${subject}</td>
+                  <td style="padding:10px 0;color:#94a3b8;text-transform:uppercase;font-size:12px;">
+                    Subject
+                  </td>
+                  <td style="padding:10px 0;font-weight:500;">
+                    ${subject}
+                  </td>
                 </tr>
               </table>
 
+              <!-- MESSAGE -->
               <div style="margin-top:20px;">
-                <p style="margin:0 0 8px;font-weight:bold;color:#0f172a;">
-                  Message:
+                <p style="margin:0 0 8px;font-size:12px;color:#94a3b8;text-transform:uppercase;">
+                  Message
                 </p>
-                <div style="background:#f1f5f9;border-left:4px solid #0f172a;padding:15px;border-radius:4px;font-size:14px;color:#334155;line-height:1.6;">
+                <div style="background:#f1f5f9;padding:16px;border-radius:6px;font-size:14px;color:#334155;line-height:1.6;">
                   ${message}
                 </div>
+              </div>
+
+              <!-- CTA -->
+              <div style="margin-top:28px;text-align:center;">
+                <a href="mailto:${email}"
+                   style="display:inline-block;background:#2b3f8f;color:#ffffff;
+                          padding:12px 22px;font-size:14px;border-radius:6px;
+                          text-decoration:none;font-weight:500;">
+                  Reply to Inquiry →
+                </a>
               </div>
             </td>
           </tr>
 
           <!-- FOOTER -->
           <tr>
-            <td style="background:#f8fafc;padding:15px 30px;text-align:center;font-size:12px;color:#64748b;">
-              This email was generated automatically from your website contact form.
-              <br/>
+            <td style="background:#f8fafc;padding:16px 30px;text-align:center;font-size:12px;color:#64748b;">
+              This email was generated automatically.
+              <br />
               © ${new Date().getFullYear()} Your Company Name
             </td>
           </tr>

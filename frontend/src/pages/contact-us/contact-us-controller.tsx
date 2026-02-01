@@ -1,7 +1,12 @@
 import axios from 'axios';
 import { useState } from 'react';
+import { useLocation, useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const contantUsController = () => {
+   const { brand } = useParams<{ brand?: string }>();
+   const location = useLocation();
+
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -9,10 +14,17 @@ const contantUsController = () => {
     subject: '',
     message: '',
   });
-
   const [loading, setLoading] = useState(false);
-  const [status, setStatus] = useState('');
-
+   
+  const breadcrumb = [
+    { path: `/${brand}`, label: 'Home' },
+    { path: `/${brand}/contact-us`, label: 'Contact Us' },
+  ];
+  
+  const hideBreadcrumb =
+  location.pathname === "/ncore" ||
+  location.pathname === "/renil";
+  
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -22,7 +34,6 @@ const contantUsController = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    setStatus('');
 
     try {
       const res = await axios.post('/api/contact', formData);
@@ -30,7 +41,7 @@ const contantUsController = () => {
       const data = res.data;
 
       if (data.success) {
-        setStatus('Message sent successfully ✅');
+        toast.success('Message sent successfully ✅');
         setFormData({
           firstName: '',
           lastName: '',
@@ -39,17 +50,17 @@ const contantUsController = () => {
           message: '',
         });
       } else {
-        setStatus('Failed to send message ❌');
+        toast.error('Failed to send message ❌');
       }
     } catch (error) {
       console.error('error',error)
-      setStatus('Server error ❌');
+      toast.error('Server error ❌');
     } finally {
       setLoading(false);
     }
   };
 
-  return { handleChange, handleSubmit, loading, status, formData };
+  return { theme:brand, handleChange, handleSubmit, loading, breadcrumb, formData, hideBreadcrumb };
 };
 
 export default contantUsController;

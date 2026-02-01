@@ -3,7 +3,7 @@
   font-family: Arial, sans-serif;
 }
 .footer-ncore {
- background: #A3CB37; 
+ background: #2BA449FA; 
 }
 
 .footer-renil{
@@ -30,7 +30,7 @@ align-items: flex-start;
 }
 
 .brand-box h2 {
-  color: #2E2E2E;
+  color: #ffffff;
   margin: 0;
   line-height: 1.2;
 }
@@ -118,7 +118,7 @@ align-items: flex-start;
 }
 
 .info-row p {
-  color: #2E2E2E;
+  color: #ffffff;
   align-self: center;
   margin: 0;
   line-height: 1.6;
@@ -127,7 +127,7 @@ align-items: flex-start;
 }
 
 .footer-bottom {
-  color: #2E2E2E;
+  color: #ffffff;
   text-align: center;
   padding: 18px 10px;
   border-top: 1px solid rgba(255, 255, 255, 0.3);
@@ -193,4 +193,36 @@ margin-bottom: 10px;
 font-size: 13px;
 padding: 14px 8px;
 }
+}
+
+.tm-circle-footer {
+  padding: 1px;
+  font-size: 9px;
+  font-weight: 600;
+  width: 14px;
+  height: 13px;
+  border: 1.5px solid #ffffff;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  position: relative;
+  top: -6px;
+}
+
+.reg-circle-footer {
+  margin-left: 3px;
+  font-size: 10px;
+  font-weight: 600;
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid #ffffff;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  position: relative;
+  top: -5px;
 }

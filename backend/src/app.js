@@ -11,9 +11,10 @@ const swaggerSpec = require("./config/swagger");
 const connectDatabase = require("./config/db");
 const errorMiddleware = require("./middlewares/error.middleware");
 const homeRoutes = require("./routes/home.routes");
-const headerRoutes = require("./routes/header.routes");
-const footerRoutes = require("./routes/footer.routes");
 const contantRoutes = require("./routes/contact.routes");
+const layoutRoutes =  require("./routes/layout.routes");
+const aboutRoutes = require("./routes/about.routes");
+const productRoutes = require("./routes/product.routes");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -31,9 +32,10 @@ app.use(morgan("dev"));
 
 // Routes
 app.use("/api/home", homeRoutes);
-app.use("/api/header", headerRoutes);
-app.use("/api/footer", footerRoutes);
+app.use("/api/layout", layoutRoutes);
 app.use("/api/contact", contantRoutes);
+app.use("/api/about", aboutRoutes);
+app.use("/api", productRoutes);
 
 // Swagger (BEFORE error middleware)
 app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));

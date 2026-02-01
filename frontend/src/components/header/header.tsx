@@ -2,12 +2,10 @@ import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { TabSection } from '../../pages/tab-section';
 import './index.css';
-import { HeaderController } from './header-controller';
 import { ncoreIcon, renilIcon } from '../../assets/icon';
 
-const Header = ({ theme }: any) => {
+const Header = ({ theme, pageData, loading }: any) => {
   const [open, setOpen] = useState(false);
-  const { pageData, loading } = HeaderController();
 
   if (loading || !pageData) return null;
 
@@ -19,11 +17,17 @@ const Header = ({ theme }: any) => {
         <div className="header-inner">
           {/* Brand */}
           <div className="brand">
-            <img
-              src={theme === 'ncore' ? ncoreIcon : renilIcon}
-              alt={pageData.title}
-            />
-            <span className="brand-title">{pageData.title}</span>
+            <NavLink to={theme === 'ncore' ? '/ncore' : '/renil'}>
+              <img
+                src={theme === 'ncore' ? ncoreIcon : renilIcon}
+                alt={pageData.title}
+              />
+            </NavLink>
+            <span className="brand-title">
+              {pageData.title}
+              {theme === 'ncore' && <sup className="tm-circle">TM</sup>}
+              {theme === 'renil' && <sup className="reg-circle">R</sup>}
+            </span>
           </div>
 
           <button
@@ -39,8 +43,9 @@ const Header = ({ theme }: any) => {
               <NavLink
                 key={item.path}
                 to={item.path}
-                end={item.path === '.'}
-                onClick={() => setOpen(false)}>
+                end={item.exact}
+                onClick={() => setOpen(false)}
+                className={({ isActive }) => (isActive ? 'active' : '')}>
                 {item.label}
               </NavLink>
             ))}

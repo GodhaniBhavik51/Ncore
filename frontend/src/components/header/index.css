@@ -26,6 +26,44 @@
   height: 36px;
 }
 
+.brand-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  line-height: 1;
+}
+
+.tm-circle {
+  padding: 1px;
+  font-size: 9px;
+  font-weight: 600;
+  width: 14px;
+  height: 13px;
+  border: 1.5px solid #000;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  position: relative;
+  top: -6px;
+}
+
+.reg-circle {
+  font-size: 10px;
+  font-weight: 600;
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid #000;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  position: relative;
+  top: -5px;
+}
+
 .ncore .brand-title{
  color: #283D90FA;
   font-size: 18px;
@@ -33,7 +71,7 @@
 }
 
 .renil .brand-title {
-  color: #000;
+  color: #000000;
   font-size: 18px;
   font-weight: 600;
 }
