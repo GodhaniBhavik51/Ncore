@@ -22,7 +22,7 @@ const ICON_MAP: any = {
 const ProductPage = () => {
   const { products, loading, theme } = productPageController();
 
-  if (loading || !products) return null;
+  if (loading || !products) return <div className="page-loading" />;
 
   const items = [
     { path: `/${theme}`, label: 'Home' },

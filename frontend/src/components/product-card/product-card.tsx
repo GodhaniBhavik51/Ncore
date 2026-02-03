@@ -21,7 +21,7 @@ const ICON_MAP: any = {
 const ProductCard = () => {
   const { emblaRef, products, loading, theme } = productCardController();
 
-  if (loading || !products) return null;
+  if (loading || !products) return <div className="page-loading" />;
   return (
     <>
       {products?.map((item: any,index:number) => {

@@ -15,7 +15,9 @@ const Layout = () => {
   return (
     <>
       <Header theme={theme} pageData={pageData?.header} loading={loading} />
-      <Outlet context={{ brand: theme }} />
+      <main className="page-content">
+        <Outlet context={{ brand: theme }} />
+      </main>
       <Footer theme={theme} pageData={pageData?.footer} loading={loading} />
     </>
   );

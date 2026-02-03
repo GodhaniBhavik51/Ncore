@@ -22,7 +22,7 @@ const ICON_MAP: any = {
 const AboutPage = () => {
   const { pageData, loading, breadcrumb, hideBreadcrumb } = aboutUsController();
 
-  if (loading || !pageData) return null;
+  if (loading || !pageData) return <div className="page-loading" />;
 
   return (
     <>

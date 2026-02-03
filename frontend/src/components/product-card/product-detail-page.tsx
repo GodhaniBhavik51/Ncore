@@ -24,7 +24,7 @@ const ProductDetailPage = () => {
   const { productsDetail, productsLoading, theme, breadcrumb } =
     productPageController();
 
-  if (productsLoading || !productsDetail) return null;
+  if (productsLoading || !productsDetail) return <div className="page-loading" />;
 
   return (
     <>
