@@ -32,16 +32,16 @@ const ProductPage = () => {
   return (
     <>
       <Breadcrumb items={items} />
-      {products?.map((item: any) => {
+      {products?.map((item: any,index:number) => {
         return (
-          <section className="products-section">
+          <section className="products-section" key={index.toString()}>
             <h2>{item?.title}</h2>
             <p className="products-sub">{item?.subtitle}</p>
 
             <div className="products-grid">
-              {item?.products?.map((product: any) => {
+              {item?.products?.map((product: any,index:number) => {
                 return (
-                  <div className="product-card" key={product.id}>
+                  <div className="product-card" key={index.toString()}>
                     <div
                       className={`${theme === 'renil' ? 'product-image-wrapper' : ''}`}>
                       <img

@@ -30,14 +30,14 @@ const ProductCard = () => {
             <h2>{item?.title}</h2>
             <p className="products-sub">{item?.subtitle}</p>
 
-            <div className="products-slider-wrapper">
-              <div className="embla" ref={emblaRef}>
-                <div className="embla__container products-home-card">
-                  {[...item?.products, ...item?.products]?.map(
+              <div className="embla" >
+                 <div className="embla__viewport" ref={emblaRef}>
+                <div className="embla__container">
+                  {[...item?.products,...item?.products]?.map(
                     (product: any, index: number) => {
                       return (
                         <div className="embla__slide" key={index}>
-                          <div className="product-card">
+                          <div className="product-card product-card-slider">
                             <div
                               className={`${theme === 'renil' ? 'product-image-wrapper' : ''} embla__slide__img`}>
                               <img
@@ -68,8 +68,8 @@ const ProductCard = () => {
                     }
                   )}
                 </div>
+                </div>
               </div>
-            </div>
           </section>
         );
       })}

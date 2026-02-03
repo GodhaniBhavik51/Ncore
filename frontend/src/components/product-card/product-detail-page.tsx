@@ -36,8 +36,8 @@ const ProductDetailPage = () => {
             <p className="products-sub">{item?.description}</p>
 
             <div className="product-grid product-detail-card">
-              {item?.features?.map((product: any) => (
-                <div className="product-detail-card" key={product?.id}>
+              {item?.features?.map((product: any,index:number) => (
+                <div className="product-detail-card" key={index.toString()}>
                   <div
                     className={`${theme === 'renil' ? 'product-image-wrapper' : ''}`}>
                     <img

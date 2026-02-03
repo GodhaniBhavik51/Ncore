@@ -14,6 +14,7 @@ const productCardController = () => {
     slidesToScroll: 1,
     dragFree: true,
     align: 'center',
+    skipSnaps: false
   };
 
   const [emblaRef] = useEmblaCarousel(emblaOptions, [
