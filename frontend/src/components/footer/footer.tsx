@@ -9,6 +9,7 @@ import {
   twitter,
   ncoreIcon,
   renilIcon,
+  renilFooterIcon,
 } from '../../assets/icon';
 import './index.css'
 
@@ -23,6 +24,7 @@ const ICON_MAP: any = {
   mail,
   ncoreIcon,
   renilIcon,
+  renilFooterIcon
 };
 
 const Footer = ({ theme,pageData, loading }: any) => {
