@@ -46,19 +46,19 @@ const ProductCard = () => {
                                 alt={product.title}
                               />
                             </div>
-                            <h4>{product.title}</h4>
+                            <h4>{product?.title}</h4>
                             <p className="product-desc">
-                              {product.description}
+                              {product?.description}
                             </p>
 
                             <ul className="product-features">
-                              {product.features.map((f: any, i: number) => (
+                              {product?.features?.map((f: any, i: number) => (
                                 <li key={i}>{f?.name}</li>
                               ))}
                             </ul>
 
                             <a
-                              href={`/${theme}/product/${product.slug}`}
+                              href={`/${theme}/product/${product?.slug}`}
                               className={`product-btn ${theme}`}>
                               View Collection →
                             </a>

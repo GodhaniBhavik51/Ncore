@@ -3,10 +3,10 @@ import './index.css'
 import heroBannerController from './hero-banner-controller';
 
 const getHighlightParts = (text = "") => {
-  const words = text.trim().split(" ");
+  const words = text?.trim()?.split(" ");
   return {
-    first: words.slice(0, -1).join(" "),
-    last: words.at(-1),
+    first: words?.slice(0, -1)?.join(" "),
+    last: words?.at(-1),
   };
 };
 
@@ -19,15 +19,15 @@ const heroBanner = () => {
   const { theme, pageData, loading } = heroBannerController();
   if (loading || !pageData) return null;
 
-  const { first, last } = getHighlightParts(pageData.highlightText);
+  const { first, last } = getHighlightParts(pageData?.highlightText);
 
   return (
     <section className="hero-banner" data-theme={theme}>
       <div className="hero-container">
-        {/* LEFT CONTENT */}
+
         <div className="hero-content">
          <h1>
-            {pageData.title}
+            {pageData?.title}
             <br />
             <strong>
               {first}{" "}

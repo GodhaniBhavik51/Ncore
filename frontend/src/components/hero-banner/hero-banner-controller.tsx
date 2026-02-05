@@ -13,7 +13,7 @@ const heroBannerController = () => {
   useEffect(() => {
     axios
       .get(`/api/home/hero-banner?theme=${activeBrand}`)
-      .then((res) => setPageData(res.data))
+      .then((res) => setPageData(res?.data))
       .finally(() => setLoading(false));
   }, [activeBrand]);
 

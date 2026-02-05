@@ -47,20 +47,20 @@ const ProductPage = () => {
                       <img
                         className={theme}
                         src={ICON_MAP[product?.image]}
-                        alt={product.title}
+                        alt={product?.title}
                       />
                     </div>
-                    <h4>{product.title}</h4>
-                    <p className="product-desc">{product.description}</p>
+                    <h4>{product?.title}</h4>
+                    <p className="product-desc">{product?.description}</p>
 
                     <ul className="product-features">
-                      {product.features.map((f: any, i: number) => (
+                      {product?.features?.map((f: any, i: number) => (
                         <li key={i}>{f?.name}</li>
                       ))}
                     </ul>
 
                     <a
-                      href={`/${theme}/product/${product.slug}`}
+                      href={`/${theme}/product/${product?.slug}`}
                       className={`product-btn ${theme}`}>
                       View Collection →
                     </a>

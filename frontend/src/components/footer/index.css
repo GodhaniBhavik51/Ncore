@@ -2,21 +2,22 @@
   color: #ffffff;
   font-family: Arial, sans-serif;
 }
+
 .footer-ncore {
- background: #2BA449FA; 
+  background: #2BA449FA;
 }
 
-.footer-renil{
-background: #F16136;
+.footer-renil {
+  background: #F16136;
 }
 
 .footer-wrap {
-max-width: 1300px;
-margin: auto;
-padding: 25px;
-display: grid;
-grid-template-columns: 1fr 1fr 1fr;
-align-items: flex-start;
+  max-width: 1300px;
+  margin: auto;
+  padding: 25px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: flex-start;
 }
 
 .brand-box {
@@ -34,10 +35,11 @@ align-items: flex-start;
   margin: 0;
   line-height: 1.2;
 }
-.footer-col-1{
-      display: flex;
-    flex-direction: column;
-    gap: 39px;
+
+.footer-col-1 {
+  display: flex;
+  flex-direction: column;
+  gap: 39px;
 }
 
 .footer-col h3 {
@@ -75,7 +77,6 @@ align-items: flex-start;
   left: 0;
   bottom: -6px;
 }
-
 
 .social-row {
   display: flex;
@@ -134,65 +135,22 @@ align-items: flex-start;
   font-size: 14px;
 }
 
-.footer-renil{
+.footer-renil {
   background: #F16136;
   color: #ffffff;
   font-family: Arial, sans-serif;
 }
 
 .footer-link {
-color: #ffffff;
-text-decoration: none;
-font-size: 15px;
-transition: color 0.3s ease, transform 0.3s ease;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 15px;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
-
 
 .footer-link:hover {
-color: #2E2E2E;  
-transform: translateX(4px);
-}
-
-
-@media (max-width: 767px) {
-.footer-wrap {
-grid-template-columns: 1fr;
-text-align: left;
-gap: 28px;
-}
-
-
-.footer-col-1 {
-gap: 24px;
-}
-
-
-.brand-box {
-justify-content: flex-start;
-}
-
-
-.brand-box img {
-width: 60px;
-}
-
-
-.social-row img,
-.info-row img {
-width: 36px;
-height: 36px;
-}
-
-
-.nav-list li {
-margin-bottom: 10px;
-}
-
-
-.footer-bottom {
-font-size: 13px;
-padding: 14px 8px;
-}
+  color: #2E2E2E;
+  transform: translateX(4px);
 }
 
 .tm-circle-footer {
@@ -225,4 +183,39 @@ padding: 14px 8px;
   color: #ffffff;
   position: relative;
   top: -5px;
+}
+
+@media (max-width: 767px) {
+  .footer-wrap {
+    grid-template-columns: 1fr;
+    text-align: left;
+    gap: 28px;
+  }
+
+  .footer-col-1 {
+    gap: 24px;
+  }
+
+  .brand-box {
+    justify-content: flex-start;
+  }
+
+  .brand-box img {
+    width: 60px;
+  }
+
+  .social-row img,
+  .info-row img {
+    width: 36px;
+    height: 36px;
+  }
+
+  .nav-list li {
+    margin-bottom: 10px;
+  }
+
+  .footer-bottom {
+    font-size: 13px;
+    padding: 14px 8px;
+  }
 }

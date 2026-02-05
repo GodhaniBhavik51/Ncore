@@ -15,16 +15,16 @@ const Header = ({ theme, pageData, loading }: any) => {
 
       <header className={`site-header ${theme}`}>
         <div className="header-inner">
-          {/* Brand */}
+
           <div className="brand">
             <NavLink to={theme === 'ncore' ? '/ncore' : '/renil'}>
               <img
                 src={theme === 'ncore' ? ncoreIcon : renilIcon}
-                alt={pageData.title}
+                alt={pageData?.title}
               />
             </NavLink>
             <span className="brand-title">
-              {pageData.title}
+              {pageData?.title}
               {theme === 'ncore' && <sup className="tm-circle">TM</sup>}
               {theme === 'renil' && <sup className="reg-circle">R</sup>}
             </span>
@@ -37,16 +37,15 @@ const Header = ({ theme, pageData, loading }: any) => {
             {open ? '✕' : '☰'}
           </button>
 
-          {/* MENU FROM API */}
           <nav className={`nav ${open ? 'open' : ''}`}>
-            {pageData.menu.map((item: any) => (
+            {pageData?.menu?.map((item: any) => (
               <NavLink
-                key={item.path}
-                to={item.path}
-                end={item.exact}
+                key={item?.path}
+                to={item?.path}
+                end={item?.exact}
                 onClick={() => setOpen(false)}
                 className={({ isActive }) => (isActive ? 'active' : '')}>
-                {item.label}
+                {item?.label}
               </NavLink>
             ))}
           </nav>

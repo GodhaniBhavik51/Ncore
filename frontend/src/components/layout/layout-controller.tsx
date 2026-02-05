@@ -13,7 +13,7 @@ const layoutController = () => {
   useEffect(() => {
     axios
       .get(`/api/layout?theme=${activeBrand}`)
-      .then((res) => setPageData(res.data))
+      .then((res) => setPageData(res?.data))
       .finally(() => setLoading(false));
   }, [activeBrand]);
   

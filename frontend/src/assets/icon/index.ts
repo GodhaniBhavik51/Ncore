@@ -10,6 +10,8 @@ import renilFooterIcon from './renil.svg';
 import ncoreIcon from './ncore.svg';
 import established from './established.png';
 import innovation from './innovation.png';
+import scrollToTop from './scroll-top.svg';
+
 
 export {
   innovation,
@@ -23,5 +25,6 @@ export {
   mail,
   phone,
   twitter,
-  renilFooterIcon
+  renilFooterIcon,
+  scrollToTop
 };

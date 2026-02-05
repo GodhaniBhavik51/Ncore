@@ -1,36 +1,22 @@
-import { useEffect } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
-import { setBranding } from '../../utils/setBranding';
-import ncoreIcon from '../../assets/icon/ncore.svg';
-import renilIcon from '../../assets/icon/renil.svg';
-
-const tabs = [
-  { label: 'Ncore', path: '/ncore', theme: 'ncore' },
-  { label: 'Renil', path: '/renil', theme: 'renil' },
-];
+import { NavLink } from 'react-router-dom';
+import tabSectionController from './tab-section-controller';
 
 const TabSection = () => {
-  const location = useLocation();
+  const { activeTheme, tabs } = tabSectionController();
 
-  useEffect(() => {
-    if (location.pathname.startsWith('/ncore')) {
-      setBranding('Ncore Electricals Co', ncoreIcon);
-    } else if (location.pathname.startsWith('/renil')) {
-      setBranding('Renil', renilIcon);
-    }
-  }, [location.pathname]);
-const activeTheme = location.pathname.startsWith("/renil") ? "renil" : "ncore";
   return (
     <div className={`tab-section ${activeTheme}`}>
       <div className="tabs-inner">
-        {tabs.map((tab) => (
+        {tabs?.map((tab:any) => (
           <NavLink
-            key={tab.path}
-            to={tab.path}
+            key={tab?.path}
+            to={tab?.path}
             className={({ isActive }) =>
-              isActive ? `tab tab-active ${tab.theme}` : `tab-unactive ${tab.theme}`
+              isActive
+                ? `tab tab-active ${tab?.theme}`
+                : `tab-unactive ${tab?.theme}`
             }>
-            {tab.label}
+            {tab?.label}
           </NavLink>
         ))}
       </div>

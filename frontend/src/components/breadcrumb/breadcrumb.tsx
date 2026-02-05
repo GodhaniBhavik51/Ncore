@@ -15,14 +15,14 @@ const Breadcrumb = ({ items }: BreadcrumbProps) => {
     <section className="breadcrumb-section">
       <div className="breadcrumb-container">
         <nav className="breadcrumb">
-          {items.map((item, index) => (
+          {items?.map((item, index) => (
             <span key={index}>
-              {item.path ? (
-                <Link to={item.path}>{item.label}</Link>
+              {item?.path ? (
+                <Link to={item?.path}>{item?.label}</Link>
               ) : (
-                <span className="active">{item.label}</span>
+                <span className="active">{item?.label}</span>
               )}
-              {index < items.length - 1 && <span className="separator">›</span>}
+              {index < items?.length - 1 && <span className="separator">›</span>}
             </span>
           ))}
         </nav>

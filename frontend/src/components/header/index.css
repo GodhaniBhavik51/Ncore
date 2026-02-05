@@ -64,8 +64,8 @@
   top: -5px;
 }
 
-.ncore .brand-title{
- color: #283D90FA;
+.ncore .brand-title {
+  color: #283D90FA;
   font-size: 18px;
   font-weight: 600;
 }
@@ -85,21 +85,21 @@
   color: #000;
   text-decoration: none;
   font-weight: 500;
-  display: inline-block; 
-  width: fit-content; 
+  display: inline-block;
+  width: fit-content;
   position: relative;
   padding-bottom: 6px;
 }
 
 .nav a.active::after {
-content: "";
-position: absolute;
-left: 0;
-bottom: 0;
-width: 100%;
-height: 3px;
-background-color: #283d90;
-border-radius: 2px;
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #283d90;
+  border-radius: 2px;
 }
 
 .nav a.active {

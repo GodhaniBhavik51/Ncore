@@ -40,7 +40,7 @@ const productCardController = () => {
     axios
       .get(`/api/products/${slug}?theme=${brand}`)
       .then((res) => {
-        setProductsDetail(res.data.product);
+        setProductsDetail(res?.data?.product);
       })
       .finally(() => setProductsLoading(false));
   }, [brand]);
@@ -50,7 +50,7 @@ const productCardController = () => {
     axios
       .get(`/api/products/?theme=${brand}`)
       .then((res) => {
-        setProducts(res.data);
+        setProducts(res?.data);
       })
       .finally(() => setLoading(false));
   }, [brand]);

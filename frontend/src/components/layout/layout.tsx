@@ -4,6 +4,7 @@ import layoutController from './layout-controller';
 import { Outlet } from 'react-router-dom';
 import React from 'react';
 import NotFoundPage from '../../pages/404';
+import { ScrollToTop } from '../scroll-to-top';
 
 const Layout = () => {
   const { theme, pageData, loading } = layoutController();
@@ -19,6 +20,7 @@ const Layout = () => {
         <Outlet context={{ brand: theme }} />
       </main>
       <Footer theme={theme} pageData={pageData?.footer} loading={loading} />
+      <ScrollToTop />
     </>
   );
 };

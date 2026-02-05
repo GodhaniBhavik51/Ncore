@@ -21,7 +21,7 @@ const aboutUsController = () => {
   useEffect(() => {
     axios
       .get(`/api/about?theme=${brand}`)
-      .then((res) => setPageData(res.data))
+      .then((res) => setPageData(res?.data))
       .finally(() => setLoading(false));
   }, [brand]);
 

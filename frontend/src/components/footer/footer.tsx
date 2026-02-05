@@ -13,7 +13,6 @@ import {
 } from '../../assets/icon';
 import './index.css'
 
-
 const ICON_MAP: any = {
   facebook,
   instagram: camera,
@@ -86,7 +85,7 @@ const Footer = ({ theme,pageData, loading }: any) => {
       </div>
 
       <div className="footer-bottom">
-        Copyright {new Date().getFullYear()} {pageData.brand.title} {pageData.brand.subtitle}
+        Copyright {new Date().getFullYear()} {pageData?.brand?.title} {pageData?.brand?.subtitle}
       </div>
     </footer>
   );

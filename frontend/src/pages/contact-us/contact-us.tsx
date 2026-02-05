@@ -18,6 +18,7 @@ const ContactPage = () => {
       {(theme === 'renil' || theme === 'ncore') && (
         <>
           {!hideBreadcrumb && <Breadcrumb items={breadcrumb} />}
+          
           <section className="contact-section">
             <div className="contact-detail">
               <h2>Contact Us</h2>
