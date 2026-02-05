@@ -1,8 +1,58 @@
+import { useState } from 'react';
+import { NavLink } from 'react-router-dom';
+import { TabSection } from '../../pages/tab-section';
+import './index.css';
+import { ncoreIcon, renilIcon } from '../../assets/icon';
 
-const Header = () => {
+const Header = ({ theme, pageData, loading }: any) => {
+  const [open, setOpen] = useState(false);
+
+  if (loading || !pageData) return null;
+
   return (
-    <div>Header</div>
-  )
-}
+    <>
+      <TabSection />
 
-export default Header
+      <header className={`site-header ${theme}`}>
+        <div className="header-inner">
+
+          <div className="brand">
+            <NavLink to={theme === 'ncore' ? '/ncore' : '/renil'}>
+              <img
+                src={theme === 'ncore' ? ncoreIcon : renilIcon}
+                alt={pageData?.title}
+              />
+            </NavLink>
+            <span className="brand-title">
+              {pageData?.title}
+              {theme === 'ncore' && <sup className="tm-circle">TM</sup>}
+              {theme === 'renil' && <sup className="reg-circle">R</sup>}
+            </span>
+          </div>
+
+          <button
+            className="menu-btn"
+            onClick={() => setOpen(!open)}
+            aria-label="Toggle menu">
+            {open ? '✕' : '☰'}
+          </button>
+
+          <nav className={`nav ${open ? 'open' : ''}`}>
+            {pageData?.menu?.map((item: any) => (
+              <NavLink
+                key={item?.path}
+                to={item?.path}
+                end={item?.exact}
+                onClick={() => setOpen(false)}
+                className={({ isActive }) => (isActive ? 'active' : '')}>
+                {item?.label}
+              </NavLink>
+            ))}
+          </nav>
+        </div>
+      </header>
+    </>
+  );
+};
+
+export default Header;

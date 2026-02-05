@@ -2,32 +2,41 @@ const mongoose = require("mongoose");
 
 const heroBannerSchema = new mongoose.Schema(
   {
-    header: {
+    brand: {
       type: String,
       required: true,
-      trim: true
+      index: true,
     },
-    subtitle: {
+
+    title: {
       type: String,
       required: true,
-      trim: true
     },
+
+    highlightText: {
+      type: String,
+    },
+
     description: {
       type: String,
-      required: true
     },
+
+    primaryButton: {
+      text: String,
+      link: String,
+    },
+
+    secondaryButton: {
+      text: String,
+      link: String,
+    },
+
     image: {
       type: String,
-      required: true
+      required: true,
     },
-    isActive: {
-      type: Boolean,
-      default: true
-    }
   },
-  {
-    timestamps: true
-  }
+  { timestamps: true }
 );
 
 module.exports = mongoose.model("HeroBanner", heroBannerSchema);

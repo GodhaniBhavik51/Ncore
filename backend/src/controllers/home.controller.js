@@ -1,10 +1,29 @@
 const HeroBanner = require("../models/home.model"); 
 
 exports.getHeroBanner = async (req, res) => {
-  const banner = await HeroBanner.findOne({ isActive: true }).sort({ createdAt: -1 });
+  try {
+    const brand = String(req.query.theme || "ncore");
 
-  res.status(200).json({
-    success: true,
-    data: banner
-  });
+    const banner = await HeroBanner.findOne({
+      brand,
+    });
+
+    if (!banner) {
+      return res.status(404).json({
+        success: false,
+        message: "Hero banner not found",
+      });
+    }
+
+    res.json({
+      success: true,
+      data: banner,
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({
+      success: false,
+      message: "Server error",
+    });
+  }
 };

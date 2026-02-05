@@ -1,5 +1,3 @@
-import { lazy } from "react";
+import Header from './header';
 
-const Header = lazy(() => import("./header"));
-
-export { Header };
+export default Header;
