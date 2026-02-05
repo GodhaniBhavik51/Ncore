@@ -1,24 +1,9 @@
 import productPageController from './product-card-controller';
 import './index.css';
 
-import {
-  driver1,
-  driver2,
-  driver3,
-  panelLights,
-  streetLights,
-  tubeLights,
-} from '@images/index';
 import Breadcrumb from '../breadcrumb/breadcrumb';
+import { base64ToObjectUrl } from '../../utils/base64Image';
 
-const ICON_MAP: any = {
-  panelLights,
-  streetLights,
-  tubeLights,
-  driver1,
-  driver2,
-  driver3,
-};
 
 const ProductDetailPage = () => {
   const { productsDetail, productsLoading, theme, breadcrumb } =
@@ -42,7 +27,7 @@ const ProductDetailPage = () => {
                     className={`${theme === 'renil' ? 'product-image-wrapper' : ''}`}>
                     <img
                       className={theme}
-                      src={ICON_MAP[product?.image]}
+                      src={base64ToObjectUrl(product?.image)}
                       alt={product?.name}
                     />
                   </div>

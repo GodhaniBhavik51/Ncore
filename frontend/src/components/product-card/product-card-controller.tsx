@@ -29,8 +29,7 @@ const productCardController = () => {
   const breadcrumb = [
     { path: `/${brand}`, label: 'Home' },
     { path: `/${brand}/product`, label: 'Product' },
-    { path: `/${brand}/product/${slug}`, label: `${slug}` },
-  ];
+    { path: `/${brand}/product/${slug}`, label: `${slug ?.split("-")?.map((word:any) => word?.charAt(0)?.toUpperCase() + word?.slice(1))?.join(" ")}` }];
 
   useEffect(() => {
     if (!slug || !brand) return;

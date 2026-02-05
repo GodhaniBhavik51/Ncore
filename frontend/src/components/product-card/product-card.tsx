@@ -1,27 +1,13 @@
 import productCardController from './product-card-controller';
 import './index.css';
-import {
-  driver1,
-  driver2,
-  driver3,
-  panelLights,
-  streetLights,
-  tubeLights,
-} from '@images/index';
+import { base64ToObjectUrl } from '../../utils/base64Image';
 
-const ICON_MAP: any = {
-  panelLights,
-  streetLights,
-  tubeLights,
-  driver1,
-  driver2,
-  driver3,
-};
 
 const ProductCard = () => {
   const { emblaRef, products, loading, theme } = productCardController();
 
   if (loading || !products) return <div className="page-loading" />;
+  
   return (
     <>
       {products?.map((item: any,index:number) => {
@@ -42,7 +28,7 @@ const ProductCard = () => {
                               className={`${theme === 'renil' ? 'product-image-wrapper' : ''} embla__slide__img`}>
                               <img
                                 className={theme}
-                                src={ICON_MAP[product?.image]}
+                                src={base64ToObjectUrl(product?.image)}
                                 alt={product.title}
                               />
                             </div>

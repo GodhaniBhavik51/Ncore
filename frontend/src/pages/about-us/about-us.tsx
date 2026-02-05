@@ -20,7 +20,7 @@ const ICON_MAP: any = {
 };
 
 const AboutPage = () => {
-  const { pageData, loading, breadcrumb, hideBreadcrumb } = aboutUsController();
+  const { pageData, loading, breadcrumb, hideBreadcrumb, theme } = aboutUsController();
 
   if (loading || !pageData) return <div className="page-loading" />;
 
@@ -62,7 +62,7 @@ const AboutPage = () => {
 
         <div className="leader-grid">
           {pageData?.leadership?.members?.map((member: any, i: number) => (
-            <div className="leader-card" key={i}>
+            <div className={`leader-card ${theme}`} key={i}>
               <img src={ICON_MAP[member?.photo]} alt={member?.name} />
               <h4>{member?.name}</h4>
               <span>{member?.role}</span>
