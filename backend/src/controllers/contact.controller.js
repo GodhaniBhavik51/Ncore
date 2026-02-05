@@ -7,8 +7,8 @@ exports.sendContactMessage = async (req, res) => {
 
     const { firstName, lastName, email, subject, message } = contactData;
 
-    if (!email || !message) {
-      return res.status(400).json({ success: false, message: "Invalid data" });
+    if (!firstName || !email || !message) {
+      return res.status(400).json({ success: false,  message: "Required fields missing" });
     }
 
     await mailTransporter.sendMail({
@@ -28,7 +28,6 @@ exports.sendContactMessage = async (req, res) => {
       <td align="center" style="padding:40px 0;">
         <table width="600" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:10px;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,0.08);">
 
-          <!-- HEADER -->
           <tr>
             <td style="background:#2b3f8f;padding:22px 30px;color:#ffffff;">
               <table width="100%">
@@ -46,14 +45,12 @@ exports.sendContactMessage = async (req, res) => {
             </td>
           </tr>
 
-          <!-- BODY -->
           <tr>
             <td style="padding:30px;">
               <p style="margin:0 0 20px;font-size:14px;color:#334155;">
                 You have received a new message from your website contact form.
               </p>
 
-              <!-- DETAILS -->
               <table width="100%" cellpadding="0" cellspacing="0" style="font-size:14px;color:#334155;">
                 <tr>
                   <td style="padding:10px 0;width:120px;color:#94a3b8;text-transform:uppercase;font-size:12px;">
@@ -84,8 +81,6 @@ exports.sendContactMessage = async (req, res) => {
                   </td>
                 </tr>
               </table>
-
-              <!-- MESSAGE -->
               <div style="margin-top:20px;">
                 <p style="margin:0 0 8px;font-size:12px;color:#94a3b8;text-transform:uppercase;">
                   Message
@@ -94,8 +89,6 @@ exports.sendContactMessage = async (req, res) => {
                   ${message}
                 </div>
               </div>
-
-              <!-- CTA -->
               <div style="margin-top:28px;text-align:center;">
                 <a href="mailto:${email}"
                    style="display:inline-block;background:#2b3f8f;color:#ffffff;
@@ -106,8 +99,6 @@ exports.sendContactMessage = async (req, res) => {
               </div>
             </td>
           </tr>
-
-          <!-- FOOTER -->
           <tr>
             <td style="background:#f8fafc;padding:16px 30px;text-align:center;font-size:12px;color:#64748b;">
               This email was generated automatically.

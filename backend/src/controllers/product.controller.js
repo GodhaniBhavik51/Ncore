@@ -47,7 +47,7 @@ const getProductBySlug = async (req, res) => {
     console.error(error);
     res.status(500).json({
       success: false,
-      message: "Failed to fetch product",
+      message: 'Failed to fetch products',
     });
   }
 };

@@ -14,8 +14,10 @@ exports.getAbout = async (req, res) => {
 
     res.json(about);
   } catch (error) {
+    console.error(error);
     res.status(500).json({
-      message: "Server error"
+      success: false,
+      message: "Server error",
     });
   }
 };

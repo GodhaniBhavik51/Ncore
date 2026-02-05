@@ -24,8 +24,8 @@ connectDatabase();
 
 // Global middlewares
 app.use(express.json());
-app.use(express.urlencoded({ extended: false })); // optional
-app.use(express.static("public"));               // optional
+app.use(express.urlencoded({ extended: false })); 
+app.use(express.static("public"));          
 app.use(cors());
 app.use(helmet());
 app.use(morgan("dev"));
@@ -37,10 +37,10 @@ app.use("/api/contact", contantRoutes);
 app.use("/api/about", aboutRoutes);
 app.use("/api", productRoutes);
 
-// Swagger (BEFORE error middleware)
+// Swagger
 app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
-// Error handler (ALWAYS LAST)
+// Error handler
 app.use(errorMiddleware);
 
 app.listen(PORT, () => {

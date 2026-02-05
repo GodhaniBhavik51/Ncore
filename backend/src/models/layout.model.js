@@ -1,4 +1,3 @@
-// models/layout.model.js
 const mongoose = require("mongoose");
 
 const layoutSchema = new mongoose.Schema(
