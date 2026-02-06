@@ -12,7 +12,7 @@ const layoutController = () => {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_API_URL}/api/layout?theme=${activeBrand}`)
+      .get(`/api/layout?theme=${activeBrand}`)
       .then((res) => setPageData(res?.data))
       .finally(() => setLoading(false));
   }, [activeBrand]);

@@ -20,7 +20,7 @@ const ProductDetailPage = () => {
             <h2>{item?.title}</h2>
             <p className="products-sub">{item?.description}</p>
 
-            <div className="product-grid product-detail-card">
+            <div className="product-grid">
               {item?.features?.map((product: any,index:number) => (
                 <div className="product-detail-card" key={index.toString()}>
                   <div
