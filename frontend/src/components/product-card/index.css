@@ -223,16 +223,21 @@
   .embla__slide {
     flex: 0 0 85%;
   }
+  
+  .product-page-button {
+    width: 68vw !important;
+  }
 
   .product-btn {
     width: 50vw;
   }
 
   .products-section h2 {
-   font-size:25px;
+   font-size:22px;
   }
 
   .products-sub {
-    font-size: 21px;
+   font-size: 18px;
+   margin-bottom: 20px;
   }
 }

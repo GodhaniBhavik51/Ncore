@@ -45,7 +45,7 @@ const ProductPage = () => {
 
                     <a
                       href={`/${theme}/product/${product?.slug}`}
-                      className={`product-btn ${theme}`}>
+                      className={`product-btn product-page-button ${theme}`}>
                       View Collection →
                     </a>
                   </div>
