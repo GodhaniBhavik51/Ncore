@@ -28,7 +28,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static("public"));          
 app.use(cors({
   origin: [
-    "https://myapp.com",
+    "https://ncore-theta.vercel.app",
     "https://www.myapp.com"
   ],
   methods: ["GET", "POST", "PUT", "DELETE"],
