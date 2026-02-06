@@ -119,12 +119,12 @@
   }
 
   .contact-detail h2 {
-    font-size: 24px;
+    font-size: 21px;
     text-align: center;
   }
 
   .contact-detail p {
-    font-size: 16px;
+    font-size: 18px;
     text-align: center;
     line-height: 1.5;
   }
@@ -390,17 +390,20 @@
   .about-text h3,
   .leadership h2
   {
-    font-size: 25px;
+    font-size: 22px;
   }
-
+  
+  .about-text h3{
+   text-align: center;
+  }
   .about-detail p,
   .about-text p,
   .leadership-sub {
-    font-size: 21px;
+    font-size: 18px;
   }
   
   .about-points li{
-    font-size: 13px;
+    font-size: 12px;
   }
   .leader-card{
     padding:15px;
@@ -410,6 +413,10 @@
   }
   .leader-card span,.leader-card p {
    font-size: 18px;
+  }
+
+  .leadership-sub{
+   margin-bottom: 10px;
   }
 }
 
