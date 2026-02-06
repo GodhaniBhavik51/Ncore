@@ -381,6 +381,10 @@
     grid-template-columns: 1fr;
     padding: 20px;
   }
+
+  .about-points{
+   gap: 15px;
+  }
 }
 
 /* Not found Page */
