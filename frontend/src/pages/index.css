@@ -115,7 +115,7 @@
 
 @media (max-width: 768px) {
   .contact-section {
-    padding: 20px 16px 30px;
+    padding: 20px 20px 30px;
   }
 
   .contact-detail h2 {
@@ -380,6 +380,36 @@
   .leader-grid {
     grid-template-columns: 1fr;
     padding: 20px;
+  }
+
+  .about-points{
+   gap: 15px;
+  }
+
+  .about-detail h2,
+  .about-text h3,
+  .leadership h2
+  {
+    font-size: 25px;
+  }
+
+  .about-detail p,
+  .about-text p,
+  .leadership-sub {
+    font-size: 21px;
+  }
+  
+  .about-points li{
+    font-size: 13px;
+  }
+  .leader-card{
+    padding:15px;
+  }
+  .leader-card h4{
+    font-size: 21px;
+  }
+  .leader-card span,.leader-card p {
+   font-size: 18px;
   }
 }
 
