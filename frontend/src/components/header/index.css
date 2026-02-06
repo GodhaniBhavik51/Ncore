@@ -117,12 +117,13 @@
 
 @media (max-width: 768px) {
   .menu-btn {
+    font-size: 22px;
     display: block;
   }
 
   .nav {
     position: absolute;
-    top: 64px;
+    top: 46px;
     left: 0;
     width: 100%;
     background: #fff;
@@ -135,5 +136,12 @@
 
   .nav.open {
     display: flex;
+  }
+  .site-header{
+    height: 46px;
+  }
+
+  .header-inner{
+    padding: 0 10px;
   }
 }
