@@ -26,14 +26,19 @@ connectDatabase();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false })); 
 app.use(express.static("public"));          
-app.use(cors({
-  origin: [
-    "https://ncore-theta.vercel.app",
-    "https://www.myapp.com"
-  ],
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  credentials: true
-}));
+app.use(
+  cors({
+    origin: [
+      "http://localhost:3000",
+      "http://localhost:5173",
+      "https://ncore-psi.vercel.app"
+    ],
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"]
+  })
+);
+
 app.use(helmet());
 app.use(morgan("dev"));
 
