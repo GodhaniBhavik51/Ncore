@@ -12,15 +12,17 @@ const heroBannerController = () => {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_API_URL}/api/home/hero-banner?theme=${activeBrand}`)
+      .get(
+        `/api/home/hero-banner?theme=${activeBrand}`
+      )
       .then((res) => setPageData(res?.data))
       .finally(() => setLoading(false));
   }, [activeBrand]);
 
   return {
     theme: activeBrand,
-    pageData:pageData?.data,
-    loading
+    pageData: pageData?.data,
+    loading,
   };
 };
 

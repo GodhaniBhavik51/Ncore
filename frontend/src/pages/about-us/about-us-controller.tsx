@@ -20,7 +20,7 @@ const aboutUsController = () => {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_API_URL}/api/about?theme=${brand}`)
+      .get(`/api/about?theme=${brand}`)
       .then((res) => setPageData(res?.data))
       .finally(() => setLoading(false));
   }, [brand]);

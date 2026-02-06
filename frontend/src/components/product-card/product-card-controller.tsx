@@ -37,7 +37,7 @@ const productCardController = () => {
     setProductsLoading(true);
 
     axios
-      .get(`${import.meta.env.VITE_API_URL}/api/products/${slug}?theme=${brand}`)
+      .get(`/api/products/${slug}?theme=${brand}`)
       .then((res) => {
         setProductsDetail(res?.data?.product);
       })
@@ -47,7 +47,7 @@ const productCardController = () => {
   useEffect(() => {
     if (slug) return;
     axios
-      .get(`${import.meta.env.VITE_API_URL}/api/products/?theme=${brand}`)
+      .get(`/api/products/?theme=${brand}`)
       .then((res) => {
         setProducts(res?.data);
       })
